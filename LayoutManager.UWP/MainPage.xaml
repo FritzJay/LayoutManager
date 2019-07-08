@@ -13,16 +13,24 @@
         <StackPanel>
             <TextBox Name="NewLayoutName"></TextBox>
             <Button Click="Add_Click">Add</Button>
-            <ListView Name="Layouts">
-                <ListView.ItemTemplate>
+            <GridView Name="Layouts">
+                <GridView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name}" />
-                            <Button Click="Remove_Click">Remove</Button>
+                        <StackPanel Height="280" Width="180" Margin="12">
+                            <Image Source="Placeholder.png" Height="180" Width="180" Stretch="UniformToFill"/>
+                            <StackPanel Margin="0,12">
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="process information goes here" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlPageTextBaseMediumBrush}"/>
+                            </StackPanel>
                         </StackPanel>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </GridView.ItemTemplate>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid MaximumRowsOrColumns="10" Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+            </GridView>
         </StackPanel>
     </Grid>
 </Page>
