@@ -13,7 +13,7 @@
         <StackPanel>
             <TextBox Name="NewLayoutName"></TextBox>
             <Button Click="Add_Click">Add</Button>
-            <GridView Name="Layouts">
+            <GridView Name="Layouts" SelectionChanged="Layouts_SelectionChanged">
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Height="280" Width="180" Margin="12">
@@ -21,6 +21,7 @@
                             <StackPanel Margin="0,12">
                                 <TextBlock Text="{Binding Name}"/>
                                 <TextBlock Text="process information goes here" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="{ThemeResource SystemControlPageTextBaseMediumBrush}"/>
+                                <Button Visibility="Collapsed" Click="RemoveButton_Clicked" x:Name="RemoveButton">Remove</Button>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
